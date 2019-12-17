@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2019/12/17 20:25:09 by hmidoun          ###   ########.fr       */
+/*   Updated: 2019/12/17 21:42:54 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main(int argc, char **argv)
 {
-
+	argc++;
+	if(argv[0][0]== 5)
+		return (0);
 	return (0);
 }

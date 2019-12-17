@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaelee <jaelee@student.42.fr>              +#+  +:+       +#+         #
+#    By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/23 15:42:50 by hmidoun           #+#    #+#              #
-#    Updated: 2019/08/14 06:40:56 by jaelee           ###   ########.fr        #
+#    Updated: 2019/12/17 21:35:31 by hmidoun          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,14 +76,8 @@ SRC = ft_atoi.c \
 	get_next_line.c \
 	ft_sqrt_max.c \
 	ft_abs.c \
-	ft_splitdel.c \
-	array_clear.c \
-	array_pop_back.c \
-	array_push_back.c \
-	array_reserve.c \
-	array_init.c \
-	array_shrink.c
-HEADER = ./includes/libft.h ./includes/array.h
+	ft_splitdel.c
+HEADER = ./includes/libft.h
 INCLUDE_PATH = ./includes
 OBJ = $(patsubst %.c, obj/%.o, $(SRC))
 CC = gcc
