@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 12:13:50 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/17 16:30:34 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/18 13:06:59 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 typedef struct s_all_paths	t_all_paths;
 struct	s_all_paths	//list of all paths
 {
-	int				*path;
+	int				**path;
 	int				size;
 	int				f;
 };

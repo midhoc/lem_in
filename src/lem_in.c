@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/17 20:50:43 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/18 13:21:05 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,19 @@ int			set_matrix(t_graph *graph)
 		return (0);
 	while (++i < graph->nbr_curr_paths)
 	{
-		if (!(graph->curr_paths[i].path = malloc(sizeof(int) * graph->next_paths[i].size)))
+		if (!(graph->curr_paths[i].path = malloc(sizeof(int *) * 2)))
+			return (0);
+		if (!(graph->curr_paths[i].path[0]= malloc(sizeof(int) * graph->next_paths[i].size)))
+			return (0);
+		if (!(graph->curr_paths[i].path[1]= malloc(sizeof(int) * graph->next_paths[i].size)))
 			return (0);
 		j = -1;
 		while (++j < graph->next_paths[i].size)
-			graph->curr_paths[i].path[j] = graph->next_paths[i].path[j];
-	//	graph->curr_paths[i].path[j] = 0;
+		{
+			graph->curr_paths[i].path[0][j] = graph->next_paths[i].path[0][j];
+			graph->curr_paths[i].path[1][j] = 0;
+		}
+	//	graph->curr_paths[i].path[0][j] = 0;
 		graph->curr_paths[i].size = graph->next_paths[i].size;
 	}
 	free_paths(graph, 1);
@@ -97,13 +104,13 @@ int 	main()
 
 	graph.nbr_n = 8;
 
-	// for(int l = 0; l < 30; l++)
-	// {
-	graph.nbr_f = 5;
+	for(int l = 1; l < 30; l++)
+	{
+	graph.nbr_f = l;
 
-	// ft_putnbr(l);
-	//ft_putstr("**********\n");
-		//ft_putchar('\n');
+	ft_putnbr(l);
+	ft_putstr("**********\n");
+		ft_putchar('\n');
 
 
 	if (!set_matrix(&graph))
@@ -168,22 +175,22 @@ int 	main()
 					graph.links[j][i] = 1;
 			}
 	}
-	graph.links[0][2] = graph.nbr_n + 1;
-	graph.links[2][4] = graph.nbr_n + 1;
-	graph.links[4][1] = graph.nbr_n + 1;
+// 	graph.links[0][2] = graph.nbr_n + 1;
+// 	graph.links[2][4] = graph.nbr_n + 1;
+// 	graph.links[4][1] = graph.nbr_n + 1;
 
 
-bfs(&graph);
-block_links(&graph);
+// bfs(&graph);
+// block_links(&graph);
 
-bfs(&graph);
-block_links(&graph);
+// bfs(&graph);
+// block_links(&graph);
 
-bfs(&graph);
-block_links(&graph);
-get_paths(&graph);
+// bfs(&graph);
+// block_links(&graph);
+// get_paths(&graph);
 
-cp_paths(&graph);
+// cp_paths(&graph);
 
 
 	// bfs(&graph);
@@ -263,26 +270,26 @@ cp_paths(&graph);
 	// ft_memcpy(graph.curr_paths, graph.next_paths, sizeof(graph.next_paths));
 	// graph.nbr_curr_paths = graph.nbr_next_paths;
 
-	// int	ret;
+	int	ret;
 
-	// while ((ret = optimal_path(&graph)) > 0);
-	// if (ret == 0)
-	// 	return (free_graph(&graph)); //malloc prblm
-	// else if (ret == -1 && graph.count_next_paths == 0)
-	// {
-	// 	ft_putstr("no possible path\n");
-	// 	return (free_graph(&graph));
-	// }
-	// else if (ret == -1)
-	// 	ft_distrib_f(&graph);
+	while ((ret = optimal_path(&graph)) > 0);
+	if (ret == 0)
+		return (free_graph(&graph)); //malloc prblm
+	else if (ret == -1 && graph.count_next_paths == 0)
+	{
+		ft_putstr("no possible path\n");
+		return (free_graph(&graph));
+	}
+	else if (ret == -1)
+		ft_distrib_f(&graph);
 
-	// ft_putnbr(graph.count_curr_paths);
-	// ft_putstr("................count \n");
+	ft_putnbr(graph.count_curr_paths);
+	ft_putstr("................count \n");
 	for(int i = 0; i < graph.nbr_curr_paths; i++)
 	{
 		for (int j = 0; j < graph.curr_paths[i].size; j++)
 		{
-			ft_putnbr(graph.curr_paths[i].path[j]);
+			ft_putnbr(graph.curr_paths[i].path[0][j]);
 			ft_putchar('\t');
 		}
 		ft_putchar('\n');
@@ -291,7 +298,7 @@ cp_paths(&graph);
 	}
 	free_graph(&graph);
 	ft_putchar('\n');
-	// }
-	// while(1);
+	}
+	 while(1);
 	return (0);
 }
