@@ -3,7 +3,8 @@ NAME = lem_in
 SRC =	lem_in.c \
 		get_path.c \
 		bfs.c \
-		free.c
+		free.c \
+		count.c
 
 OBJ = $(patsubst %.c, obj/%.o, $(SRC))
 

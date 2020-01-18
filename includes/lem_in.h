@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 12:13:50 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/12 08:04:01 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/17 16:30:34 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ struct	s_all_paths	//list of all paths
 {
 	int				*path;
 	int				size;
+	int				f;
 };
 
 typedef struct s_node	t_node;
@@ -39,7 +40,10 @@ struct	s_graph
 	int				*stack_path;//stack for bfs
 
 	int				nbr_curr_paths;
+	int				count_curr_paths;
 	t_all_paths		*curr_paths;
+
+	int				count_next_paths;
 	int				nbr_next_paths;
 	t_all_paths		*next_paths;
 
@@ -55,12 +59,16 @@ void		bfs(t_graph *graph);
 int			set_matrix(t_graph *graph);
 
 
-void		block_links(t_graph *graph);
+int			block_links(t_graph *graph);
 void		fill_paths(t_graph *graph, int i[3], int *n);
 int			nbr_paths(t_graph *graph);
 int			get_paths(t_graph *graph);
 
-void		free_paths(t_graph *paths, int flag);
+void		free_paths(t_graph *graph, int flag);
 int			free_graph(t_graph *graph);
+
+
+void		ft_count(t_graph *graph);
+void		ft_distrib_f(t_graph *graph);
 
 #endif
