@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 03:56:09 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/18 13:18:33 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/21 06:03:17 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ void		free_paths(t_graph *graph, int flag)
 					free(graph->next_paths[i].path[0]);
 					graph->next_paths[i].path[0] = NULL;
 				}
-				// if (graph->next_paths[i].path[1])
-				// {
-				// 	free(graph->next_paths[i].path[1]);
-				// 	graph->next_paths[i].path[1] = NULL;
-				// }
 				if (graph->next_paths[i].path)
 					free(graph->next_paths[i].path);
 			}

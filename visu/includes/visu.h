@@ -14,7 +14,6 @@
 # define visu_H
 
 #include <SDL.h>
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 # include "../../libft/includes/libft.h"

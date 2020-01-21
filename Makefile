@@ -4,7 +4,13 @@ SRC =	lem_in.c \
 		get_path.c \
 		bfs.c \
 		free.c \
-		count.c
+		count.c \
+		list.c \
+		pars_salle.c \
+		pars_tubes.c \
+		parsing.c \
+		output.c \
+		paths_selection.c
 
 OBJ = $(patsubst %.c, obj/%.o, $(SRC))
 

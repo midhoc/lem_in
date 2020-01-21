@@ -6,13 +6,38 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 12:13:50 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/18 13:06:59 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/21 07:29:37 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 # include "libft.h"
+
+# define FLAG_START 	1
+# define FLAG_END		2
+# define DEF_SALLE		4
+# define DEF_TUN		8
+# define FLAG_ERREUR	16
+
+int fd;////////////////////////////
+
+typedef struct	s_point
+{
+	int	x;
+	int y;
+}				t_point;
+
+typedef struct	s_node
+{
+	struct s_node	*prev;
+	char			*name;
+	int				n_node;
+	int				start;
+	int				end;
+	t_point			coor;
+	struct s_node	*next;
+}				t_node;
 
 typedef struct s_all_paths	t_all_paths;
 struct	s_all_paths	//list of all paths
@@ -22,13 +47,6 @@ struct	s_all_paths	//list of all paths
 	int				f;
 };
 
-typedef struct s_node	t_node;
-struct	s_node
-{
-	char			*name;
-	int				n_node;
-	t_node			*next;
-};
 typedef struct s_graph	t_graph;
 struct	s_graph
 {
@@ -70,5 +88,30 @@ int			free_graph(t_graph *graph);
 
 void		ft_count(t_graph *graph);
 void		ft_distrib_f(t_graph *graph);
+
+void		output_str(t_graph graph,int i, int j);
+void		output_algo(t_graph graph);
+
+int			cp_paths(t_graph *graph);
+int			cmp_paths(t_graph *graph);
+int			optimal_paths(t_graph *graph);
+
+
+int			ft_hashtag(char *line);
+t_node		*ft_creat_salle(t_node *salle, char *name, int flag, t_point coor);
+int			ft_pars_salle(char *line, t_node **salle, int flag, int ***tab);
+t_point 	ft_pars_coord(int j, char *line);
+int			ft_salle_existe(t_node *salle, char *line, int i, t_point coord);
+int			ft_has_salle(char *line, t_node **salle, int flag, int ***tab);
+int			ft_parsing(t_node **salle, int ***tab, int *nb_four);
+int			ft_pars_four(char *line, int *nb_four);
+int			ft_hashtag(char *line);
+t_node		*ft_prev_salle(t_node *salle);
+t_node		*ft_next_salle(t_node *salle);
+int         ft_pars_tun(char *line, t_node **salle, int ***tab);
+int			**ft_make_doubtab(t_node *salle);
+int			**ft_tab_zero(int	**tab, int size, int n_node);
+int			ft_free(int ***tab, t_node **salle);
+
 
 #endif

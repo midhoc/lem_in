@@ -1,7 +1,8 @@
 NAME = visu
 
-SRC =	main.c \
+SDL2 = ./SDL2.framework
 
+SRC =	main.c \
 
 OBJ = $(patsubst %.c, obj/%.o, $(SRC))
 
@@ -15,26 +16,23 @@ LIBFT =	../libft/libft.a
 
 CC = gcc
 
-FLAGS = -g `sdl2-config --cflags --libs`
+FLAGS = -g -lm -framework SDL2 #-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ) $(HEADER)
+$(NAME): $(LIBFT) $(OBJ) $(HEADER) $(SDL2)
 	$(CC) -o $(NAME)  $(INCLUDE_PATH) $(OBJ) $(LIBFT) $(FLAGS)
 
 # $(SDL2):
-# 	@if [ ! -d ./SDL2.framework ]; \
-# 	then curl https://www.libsdl.org/release/SDL2-2.0.10.dmg \
 # 	-o SDL2-2.0.10.dmg ; hdiutil attach SDL2-2.0.10.dmg ; \
 # 	cp -r /Volumes/SDL2/SDL2.framework . ; \
-# 	hdiutil detach /Volumes/SDL2 ; fi; \
-
+# 	hdiutil detach /Volumes/SDL2 ;
 
 obj:
 	mkdir -p obj
 
 obj/%.o: src/%.c $(LIBFT) $(HEADER)| obj
-	 $(CC) $(FLAGS)  -c $< -o $@
+	 $(CC) $(FLAGS)  -c $< -o $@ #$(SDL2)
 
 
 $(LIBFT):
