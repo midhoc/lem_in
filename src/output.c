@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mvo-van- <mvo-van-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 07:27:14 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/21 07:27:28 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/21 14:11:00 by mvo-van-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	output_str(t_graph graph,int i, int j)
 {
+	//printf("L%d-%s ",graph.curr_paths[i].path[1][j + 1], graph.tab_nodes[graph.curr_paths[i].path[0][j + 1]].name);
 	ft_putchar('L');
 	ft_putnbr(graph.curr_paths[i].path[1][j + 1]);
 	ft_putchar('-');

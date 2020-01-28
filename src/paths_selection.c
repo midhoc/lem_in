@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 07:28:44 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/21 07:30:10 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/28 09:06:36 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		cmp_paths(t_graph *graph)
 			if (!cp_paths(graph))			//malloc prblm
 				return(0);
 		}
-		else if(graph->count_curr_paths > graph->count_next_paths)
+		else if(graph->count_curr_paths >= graph->count_next_paths)
 		{
 			if (!cp_paths(graph))			//malloc prblm
 				return(0);

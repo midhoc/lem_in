@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 17:50:39 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/01/21 06:03:07 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/27 09:41:41 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_has_salle(char *line, t_node **salle, int flag, int ***tab)
 		if (start & i || flag)
 			return (FLAG_ERREUR);
 		start |= (i & FLAG_START ? FLAG_START : FLAG_END);
-		if (get_next_line(0, &line))
+		if (get_next_line(fd, &line))
 		{
 			ft_putstr(line);
 			ft_putchar('\n');
@@ -87,7 +87,7 @@ t_point		ft_pars_coord(int j, char *line)
 	coord.y = ft_atoi(line + j);
 	return (coord);
 }
-
+#include <stdio.h>
 int			ft_pars_salle(char *line, t_node **salle, int flag, int ***tab)
 {
 	int			j;
@@ -111,8 +111,11 @@ int			ft_pars_salle(char *line, t_node **salle, int flag, int ***tab)
 		if (coord.x == -1 || coord.y == -1 ||
 			ft_salle_existe(*salle, line, j, coord))
 			return (FLAG_ERREUR);
-		name = ft_memcpy(ft_memalloc(j + 1), line, j);
+		name = ft_strnew(j + 1);
+		//name = ft_memcpy(ft_memalloc(j + 1), line, j);
+		name = ft_strncpy(name, line , j);
 		*(salle) = ft_creat_salle(*salle, name, flag, coord);
+		free(name);
 		return (DEF_SALLE);
 	}
 }

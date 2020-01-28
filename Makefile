@@ -1,4 +1,4 @@
-NAME = lem_in
+NAME = lem-in
 
 SRC =	lem_in.c \
 		get_path.c \

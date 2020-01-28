@@ -6,14 +6,14 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 12:13:50 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/21 07:29:37 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/26 21:29:37 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
-# include "libft.h"
-
+//#include "ft_printf.h"
+#include "libft.h"
 # define FLAG_START 	1
 # define FLAG_END		2
 # define DEF_SALLE		4
@@ -111,7 +111,7 @@ t_node		*ft_next_salle(t_node *salle);
 int         ft_pars_tun(char *line, t_node **salle, int ***tab);
 int			**ft_make_doubtab(t_node *salle);
 int			**ft_tab_zero(int	**tab, int size, int n_node);
-int			ft_free(int ***tab, t_node **salle);
+int			ft_free(int **tab, t_node **salle, int flag);
 
 
 #endif
