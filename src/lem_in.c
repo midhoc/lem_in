@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/28 09:13:13 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/28 10:21:58 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int			set_matrix(t_graph *graph)
 	i = -1;
 	while (++i < graph->nbr_n)
 	{
-		if(!(graph->tmp_path[i] = malloc(sizeof(int) * 3)))
+		if(!(graph->tmp_path[i] = malloc(sizeof(int) * 4)))
 			return (0);
-		graph->tmp_path[i][0] = -1;
-		graph->tmp_path[i][1] = -1;
-		graph->tmp_path[i][2] = 0;
+		graph->tmp_path[i][3] = -1;
+		// graph->tmp_path[i][1] = -1;
+		// graph->tmp_path[i][2] = 0;
 	}
 	return (1);
 }
@@ -77,9 +77,9 @@ int 	main()
 	if(!optimal_paths(&graph))
 		return (free_graph(&graph));
 	 output_algo(graph);
-	// free_graph(&graph);
-	// ft_free(NULL, &salle, 0);
-	// free(graph.tab_nodes);
+	free_graph(&graph);
+	ft_free(NULL, &salle, 0);
+	free(graph.tab_nodes);
 
 
 

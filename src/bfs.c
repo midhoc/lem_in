@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 03:27:31 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/28 09:00:36 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/28 10:21:53 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,12 +123,13 @@ int check_1_0_link(t_graph *graph, int i[2])
 	if (graph->links[graph->tmp_path[graph->stack_path[i[0]]][0]][graph->stack_path[i[0]]] == 1 &&
 			graph->links[graph->stack_path[i[0]]][graph->tmp_path[graph->stack_path[i[0]]][0]] == 1)
 	{
-		while (++j < graph->nbr_n)
-		{
-			if (graph->links[j][graph->stack_path[i[0]]] == graph->nbr_n + 1 &&
-				graph->links[graph->stack_path[i[0]]][j] == 1)
-				return (j);
-		}
+		// while (++j < graph->nbr_n)
+		// {
+		// 	if (graph->links[j][graph->stack_path[i[0]]] == graph->nbr_n + 1 &&
+		// 		graph->links[graph->stack_path[i[0]]][j] == 1)
+		// 		return (j);
+		// }
+		return (graph->tmp_path[graph->stack_path[i[0]]][3]);
 	}
 	return (-1);
 }
@@ -144,7 +145,7 @@ void		bfs(t_graph *graph)
 	i[1] = 1;
 	while (i[0] < i[1])
 	{
-		i_link = -1;
+		i_link = 0;
 		if ((ret = check_1_0_link(graph, i)) < 0)
 		{
 			while (++i_link < graph->nbr_n)

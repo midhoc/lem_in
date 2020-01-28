@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 03:23:33 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/27 10:13:31 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/01/28 10:22:02 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,14 @@ int		block_links(t_graph *graph)
 		return (0);
 	while (i)
 	{
-		// if (i == 1888)
-		// 	break;
-		// ft_putnbr(i);
-		//  ft_putchar('\n');
 		j = graph->tmp_path[i][0];
 		graph->links[j][i] = graph->nbr_n + 1;
-		//k = graph->links[j][i];
-		i = graph->tmp_path[i][0];
-		//graph->tmp_path[i][0] = 0;
+		if (graph->links[i][j] == 1)
+			graph->tmp_path[i][3] = j;
+		else
+			graph->tmp_path[i][3] = -1;
+		i = j;
 	}
-	// ft_putchar('\n');
-	// ft_putchar('\n');
-	// ft_putchar('\n');
 	return (1);
 }
 
