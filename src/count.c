@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 14:19:07 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/02/02 19:25:49 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:48:55 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		sort(t_all_paths *paths, int *t, int size)
 	while (++i <  size)
 		t[i] = i;
 	i = size;
-	while (--i > 0)
+	while (--i >= 0)
 	{
 		j = size ;
 		while (--j > i)
@@ -46,7 +46,7 @@ void		ft_count(t_graph *graph)
 	int		total;
 	int		nb_f;
 
-	int		t[graph->nbr_curr_paths];
+	int		t[graph->nbr_next_paths];
 
 	sort(graph->next_paths, t, graph->nbr_next_paths);
 
@@ -71,6 +71,17 @@ void	ft_distrib_f(t_graph *graph)
 
 	int t[graph->nbr_curr_paths];
 	sort(graph->curr_paths, t, graph->nbr_curr_paths);
+
+
+
+	// for (int k = 0; k < graph->nbr_curr_paths; k++)
+	// {
+	// 	ft_putnbr((*graph).curr_paths[t[k]].size);
+	// 	ft_putchar('\n');
+	// }
+	// ft_putchar('\n');
+
+
 
 	nb_f = (*graph).nbr_f;
 	i = (*graph).nbr_curr_paths;
