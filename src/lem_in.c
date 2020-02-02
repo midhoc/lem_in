@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/01/28 10:21:58 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:08:41 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int 	main()
 	t_graph		graph;
 	t_node		*salle;
 
-	fd = open("tt",O_RDONLY);
+//	fd = open("tt",O_RDONLY);
 	salle = NULL;
 	if (ft_parsing(&salle, &((graph).links), &((graph).nbr_f)))
 		return (0);
