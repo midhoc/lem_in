@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 17:50:39 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/02/02 19:08:56 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:20:20 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int		ft_parsing(t_node **salle, int ***tab, int *nb_four)
 	*tab = NULL;
 	flag = 0;
 	//fd = open("test", O_RDONLY);
-	while (!(flag & FLAG_ERREUR) && get_next_line(0, &line))
+	while (!(flag & FLAG_ERREUR) && get_next_line(fd, &line))
 	{
 		ft_putstr(line);
 		ft_putchar('\n');

@@ -6,14 +6,14 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 14:19:07 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/02/02 19:07:32 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:25:49 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 
-void            sort(t_all_paths *paths, int *t, int size)
+void		sort(t_all_paths *paths, int *t, int size)
 {
 	int i;
 	int j;
@@ -46,7 +46,7 @@ void		ft_count(t_graph *graph)
 	int		total;
 	int		nb_f;
 
-	int		t[40];
+	int		t[graph->nbr_curr_paths];
 
 	sort(graph->next_paths, t, graph->nbr_next_paths);
 
@@ -69,7 +69,7 @@ void	ft_distrib_f(t_graph *graph)
 	int		nb_f;
 
 
-	int t[40];
+	int t[graph->nbr_curr_paths];
 	sort(graph->curr_paths, t, graph->nbr_curr_paths);
 
 	nb_f = (*graph).nbr_f;

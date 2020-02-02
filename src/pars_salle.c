@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 17:50:39 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/02/02 19:08:51 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:20:23 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			ft_has_salle(char *line, t_node **salle, int flag, int ***tab)
 		if (start & i || flag)
 			return (FLAG_ERREUR);
 		start |= (i & FLAG_START ? FLAG_START : FLAG_END);
-		if (get_next_line(0, &line))
+		if (get_next_line(fd, &line))
 		{
 			ft_putstr(line);
 			ft_putchar('\n');

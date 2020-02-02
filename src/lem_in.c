@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/02/02 19:08:41 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/02 19:23:41 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int			set_matrix(t_graph *graph)
 		return (0);
 	if (!(graph->stack_path = malloc(sizeof(int) * graph->nbr_n)))
 		return (0);
+	// if (!(graph->paths_order = malloc(sizeof(int) * graph->nbr_n)))
+	// 	return (0);
 	i = -1;
 	while (++i < graph->nbr_n)
 	{
@@ -62,7 +64,7 @@ int 	main()
 	t_graph		graph;
 	t_node		*salle;
 
-//	fd = open("tt",O_RDONLY);
+	fd = open("tt",O_RDONLY);
 	salle = NULL;
 	if (ft_parsing(&salle, &((graph).links), &((graph).nbr_f)))
 		return (0);
