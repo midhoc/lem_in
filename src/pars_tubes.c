@@ -6,7 +6,7 @@
 /*   By: mvo-van- <mvo-van-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 17:50:39 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/01/21 17:14:30 by mvo-van-         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:20:05 by mvo-van-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_point		ft_salle_existe_tun(t_node *salle, char *line, int i)
 	salle = ft_next_salle(salle);
 	while (salle)
 	{
+		printf("name %s\n",salle->name);
 		j = 0;
 		while (salle->name[j] && line[j] && salle->name[j] == line[j] && j < i)
 			j++;
@@ -100,8 +101,9 @@ int			ft_pars_tun(char *line, t_node **salle, int ***tab)
 	int			j;
 	t_point		coord;
 
-	if (line[0] == '#'){
-		return (ft_has_tun(line));}
+	j = 0;
+	if (line[0] == '#')
+		return (ft_has_tun(line));
 	else
 	{
 		j = 0;

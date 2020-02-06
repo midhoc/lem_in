@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   count.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mvo-van- <mvo-van-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 14:19:07 by mvo-van-          #+#    #+#             */
-/*   Updated: 2020/02/02 19:48:55 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/04 19:13:18 by mvo-van-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
 
 void		sort(t_all_paths *paths, int *t, int size)
 {

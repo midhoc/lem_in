@@ -6,13 +6,13 @@
 /*   By: mvo-van- <mvo-van-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 12:32:34 by midounhoc         #+#    #+#             */
-/*   Updated: 2020/01/21 14:18:29 by mvo-van-         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:39:25 by mvo-van-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 4096
+# define BUFF_SIZE 32
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -28,6 +28,13 @@ struct	s_list
 	size_t		content_size;
 	t_list		*next;
 };
+
+typedef struct		s_lst_fd
+{
+	int					fd;
+	char				*buff;
+	struct s_lst_fd		*next;
+}					t_lst_fd;
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t len);

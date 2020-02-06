@@ -6,7 +6,7 @@
 /*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/02/02 19:49:04 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/07 00:29:56 by hmidoun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_tab_salle(t_node *salle, t_graph *graph)
 	int		i;
 
 	i = 0;
+	salle = ft_next_salle(salle);
 	if (salle)
 		graph->nbr_n = salle->n_node + 1;
 	else
@@ -64,26 +65,55 @@ int 	main()
 	t_graph		graph;
 	t_node		*salle;
 
-	fd = open("tt",O_RDONLY);
+	fd = open("tst",O_RDONLY);
 	salle = NULL;
-	if (ft_parsing(&salle, &((graph).links), &((graph).nbr_f)))
+	if (ft_parsing(&salle, &((graph).links), &graph) == FLAG_ERREUR)
+	{
+
+		while(1);
 		return (0);
+	}
+
 	ft_tab_salle(salle, &graph);
-
-
-
+//ft_putnbr(graph.nbr_f);
 
 	if (!set_matrix(&graph))
-		return (free_graph(&graph));
+	{
+		ft_free(NULL, &salle, NULL, 0);
+		free(graph.tab_nodes);
+		free_graph(&graph);
+		while(1);
+		return (0);
+	}
+	// for(int i = 0; i < graph.nbr_n; i++)
+	// {
+	// 	for (int j = 0; j < graph.nbr_n; j++)
+	// 	{
+	// 		ft_putnbr(graph.links[i][j]);
+	// 		ft_putchar('\t');
+	// 	}
+	// 	ft_putchar('\n');
+	// }
 
+
+
+	//ft_putnbr(graph.count_curr_paths);
 	if(!optimal_paths(&graph))
-		return (free_graph(&graph));
-	 output_algo(graph);
+	{
+		ft_putstr("ERROR\n");
+		ft_free(NULL, &salle, NULL, 0);
+		free(graph.tab_nodes);
+		free_graph(&graph);
+		while(1);
+		return (0);
+	}
+
+	output_algo(graph);
 	free_graph(&graph);
-	ft_free(NULL, &salle, 0);
+	ft_free(NULL, &salle, NULL, 0);
 	free(graph.tab_nodes);
 
-
+	while (1);
 
 // 	bfs(&graph);
 // 	block_links(&graph);
