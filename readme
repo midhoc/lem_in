@@ -1,0 +1,11 @@
+Lem-in solves the distribution of ants through an anthill.
+It implements an Edmund-Karps algorithm to optimize the distribution of ants through paths that can overlap.
+
+Rooms of the anthill are linked through tunnels. Ants move from the room "start", and each round move from one room to another in order to reach the room "end". One room can only receive one ant at a time.
+
+To start the program, create the binary ".lem-in" with the command "make'.
+A map should contain the following informations: 1) The number of ants, 2) The name of the rooms and indicate which room is 'start' and 'end' 3) The connection between each room.
+
+To input a map in the program, use the following command:
+./lem-in < map/mapex3.txt
+This will show the map and for each round, were each ant should go.
