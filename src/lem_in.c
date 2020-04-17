@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmidoun <hmidoun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mvo-van- <mvo-van-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 20:24:35 by hmidoun           #+#    #+#             */
-/*   Updated: 2020/02/12 19:04:42 by hmidoun          ###   ########.fr       */
+/*   Updated: 2020/02/14 13:58:03 by mvo-van-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int		main(void)
 	{
 		ft_free(NULL, &salle, NULL, 0);
 		free(graph.tab_nodes);
+		return (0);
 	}
 	if (!optimal_paths(&graph))
 	{
